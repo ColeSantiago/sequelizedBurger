@@ -4,18 +4,28 @@
   <div class="burger-photo-div"><img class="burger-photo" src="burger.png"></div>
 
       <ul class="not-eaten">
-        {{#each burgers}}
+        {{#each Burger}}
           {{#unless devoured}}
-          {{> burgers/burger-block devoured=false}}    
+          <li>
+            {{burger_name}}
+            <button class="eat-burger" data-id="{{id}}" data-newDevour="{{devoured}}" id="{{devoured}}">
+              {{#if devoured}}{{else}}DEVOUR IT!{{/if}} 
+            </button>
+          </li>    
           {{/unless}}
         {{/each}}
       </ul>
     
     <div class="eaten">
       <ul class="eaten-burgers">
-        {{#each burgers}}
+        {{#each Burger}}
           {{#if devoured}}
-          {{> burgers/burger-block devoured=true}}
+          <li>
+            {{burger_name}}
+            <button class="eat-burger" data-id="{{id}}" data-newDevour="{{devoured}}" id="{{devoured}}">
+              {{#if this.devoured}}{{else}}DEVOUR IT!{{/if}} 
+            </button>
+          </li>
           {{/if}}
         {{/each}}
       </ul>

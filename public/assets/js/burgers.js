@@ -24,19 +24,16 @@ $(function() {
       alert('Fill in a burger!');
     } else {
       let newBurger = {
-        burger_name: '"' + $('#burger-name').val().trim() + '"',
+        burger_name: $('#burger-name').val().trim(),
         devoured: 0
       };
       console.log(newBurger);
-      $.ajax('/api/burgers', {
-        type: 'POST',
-        data: newBurger
-      }).then(
-        function() {
+      $.post('/api/burgers', newBurger).then(function() {
           console.log('created new burger');
           location.reload();
         }
       );
+      $('#burger-name').val('');
     }
   });
 });
