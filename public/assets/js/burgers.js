@@ -1,5 +1,6 @@
 $(function() {
   // on click that handles the 'devour it' buttons
+  // if there is no guest name the user will be alerted to fill in one
   $('.eat-burger').on('click', function(event) {
     let name = $('#guest-name').val().trim();
     if (name.length === 0 || name === null) {

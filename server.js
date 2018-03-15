@@ -22,9 +22,6 @@ app.use(routes);
 let models = require('./models')
 models.sequelize.sync();
 
-// require("/routes/api-routes.js")(app);
-// require("./routes/html-routes.js")(app);
-
 db.sequelize.sync().then(function () {
 	app.listen(PORT, function() {
   		console.log("App now listening at localhost:" + PORT);

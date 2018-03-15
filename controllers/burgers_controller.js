@@ -5,6 +5,7 @@ let sequelizeConnection = models.sequelize;
 sequelizeConnection.sync();
 
 // home page: grabs everything off of the database and displays it on the html with handlebars
+// also grabs the guests names when needed, and orders everything by the burgers names
 router.get('/', function(req, res) {
 	models.burger.findAll({
 		include: [{model: models.guest}],
@@ -24,7 +25,8 @@ router.post('/api/burgers', function(req, res) {
 	});
 });
 
-// put request that will update the burgers devoured state from false to true
+// post request that will update the burgers devoured state from false to true
+// if there is no guest name the user will alerted from burgers.js and then be redirected to the home page
 router.post('/api/burgers/:burgerId/', function(req, res) {
 	if (req.body.burgerEater === null || req.body.burgerEater.length === 0) {
 		res.redirect('/');	

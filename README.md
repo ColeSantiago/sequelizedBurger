@@ -3,15 +3,21 @@
 Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat, and devour them. 
 
 --------
-This app was built with MySQL, Node, Express, Handlebars and an ORM. Node and MySQL query and route data in the app, and Handlebars to generate the HTML.
+This app was built with MySQL, Node, Express, Sequelize, and Handlebars. Sequelize routes data in the app, and Handlebars generates the HTML.
 
 How the app works for the user:
 --
 *  Whenever a user submits a burger's name, the app will display the burger on the left side of the page.
 
-*  Each burger in the waiting area also has a Devour it! button. When the user clicks it, the burger will move to the right side of the page.
+*  If there is no input, the user will be promted to fill in a burger.
 
-*  The app will store every burger in a database, whether devoured or not.
+*  Each burger in the waiting area also has a Devour it! button, and an additional text box to add in a guest name. When the user fills in a name and clicks the devour it button, the burger will move to the right side of the page with the name of the user who ate it along with it.
+
+*  If there is no guest name, the user will be prompted to fill in a guest name.
+
+*  The app will store every burger  and guest in a database on their own tables, joined by what burger the guest devoured.
+
+*  The burger table will also keep track of what burgers have been devoured or not.
 
 It can be run on a node server with a mysql database, or found at:
-https://burgerapp-colesantiago.herokuapp.com/
+https://burgerappSequelize-colesantiago.herokuapp.com/
