@@ -6,21 +6,19 @@
       <ul class="not-eaten">
         {{#each burger}}
           {{#unless devoured}}
-          <li>
-            {{burger_name}}
-
-              <div class="guest-wrapper">
-                  <form class="guest-form">
-                    <div class="guest-group">
-                      <input type="text" id="guest-name" name="guest-name" placeholder="Guest Name">
-                    </div>
-                  </form>
+          <form action="api/burgers/{{id}}" method="POST">
+            <li>
+              {{burger_name}}
+              <div class="guest-wrapper">   
+                <div class="guest-group">
+                  <input type="text" id="guest-name" name="burgerEater" placeholder="Guest Name">
+                </div>
+                <button class="eat-burger" data-id="{{id}}" data-newDevour=" {{devoured}}" id="{{devoured}}" type="submit">
+                  {{#if devoured}}{{else}}DEVOUR IT!{{/if}} 
+                </button>   
               </div>
-
-            <button class="eat-burger" data-id="{{id}}" data-newDevour="{{devoured}}" id="{{devoured}}" type="submit">
-              {{#if devoured}}{{else}}DEVOUR IT!{{/if}} 
-            </button>
-          </li>    
+            </li> 
+          </form>   
           {{/unless}}
         {{/each}}
       </ul>
@@ -30,7 +28,7 @@
         {{#each burger}}
           {{#if devoured}}
           <li>
-            <p>{{this.burger_name}} , eaten by {{guest.guest_name}} </p>
+            <p>{{this.burger_name}} , eaten by {{this.guest.guest_name}} </p>
           </li>
           {{/if}}
         {{/each}}

@@ -1,19 +1,4 @@
 $(function() {
-  // on click that handles the 'devour it' buttons
-  $('.eat-burger').on('click', function(event) {
-    let burgerId = $(this).data('id');
-    let name = $('#guest-name').val().trim();
-    let newGuest = {
-      guest_name: name,
-    }
-    
-    $.post('/api/burgers/' + burgerId, newGuest)
-    .then(function() {
-        location.reload();
-      }
-    );
-  });
-
   // on click that handles the submit button that makes new burgers
   $('.create-form').on('submit', function(event) {
     event.preventDefault();

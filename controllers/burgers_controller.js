@@ -25,9 +25,8 @@ router.post('/api/burgers', function(req, res) {
 
 // put request that will update the burgers devoured state from false to true
 router.post('/api/burgers/:burgerId/', function(req, res) {
-	console.log(req.params.burgerId);
 	models.guest.create({
-		guest_name: req.body.guest_name,
+		guest_name: req.body.burgerEater,
 		burgerId: req.params.burgerId,
 	});
   	models.burger.update({ 
@@ -37,7 +36,7 @@ router.post('/api/burgers/:burgerId/', function(req, res) {
   		if (result.changedRows === 0) {
   			return res.status(404).end();
   		} else {
-  			res.status(200).end();
+  			res.redirect('/');
   		}
   	});
 });
