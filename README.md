@@ -20,4 +20,4 @@ How the app works for the user:
 *  The burger table will also keep track of what burgers have been devoured or not.
 
 It can be run on a node server with a mysql database, or found at:
-https://burgerappSequelize-colesantiago.herokuapp.com/
+https://burgersequelize-colesantiago.herokuapp.com/
