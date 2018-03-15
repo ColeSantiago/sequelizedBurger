@@ -6,20 +6,9 @@ $(function() {
     let newGuest = {
       guest_name: name,
     }
-    let newDevourState = {
-      devoured: 1,
-    };
-
-    $.post('/api/guests', newGuest)
-      .then(function() {
-        console.log('new guest');
-    })
     
-    $.ajax('/api/burgers/' + burgerId, {
-      type: 'PUT',
-      data: newDevourState
-    }).then(
-      function() {
+    $.post('/api/burgers/' + burgerId, newGuest)
+    .then(function() {
         location.reload();
       }
     );
@@ -37,8 +26,7 @@ $(function() {
       };
       console.log(newBurger);
       $.post('/api/burgers', newBurger)
-        .then(
-          function() {
+        .then(function() {
           console.log('created new burger');  
         }
       );

@@ -4,7 +4,7 @@
   <div class="burger-photo-div"><img class="burger-photo" src="burger.png"></div>
 
       <ul class="not-eaten">
-        {{#each Burger}}
+        {{#each burger}}
           {{#unless devoured}}
           <li>
             {{burger_name}}
@@ -17,7 +17,7 @@
                   </form>
               </div>
 
-            <button class="eat-burger" data-id="{{id}}" data-newDevour="{{devoured}}" id="{{devoured}}">
+            <button class="eat-burger" data-id="{{id}}" data-newDevour="{{devoured}}" id="{{devoured}}" type="submit">
               {{#if devoured}}{{else}}DEVOUR IT!{{/if}} 
             </button>
           </li>    
@@ -27,10 +27,10 @@
     
     <div class="eaten">
       <ul class="eaten-burgers">
-        {{#each Burger}}
+        {{#each burger}}
           {{#if devoured}}
           <li>
-            <p>{{burger_name}} , eaten by {{guest_name}} </p>
+            <p>{{this.burger_name}} , eaten by {{guest.guest_name}} </p>
           </li>
           {{/if}}
         {{/each}}
