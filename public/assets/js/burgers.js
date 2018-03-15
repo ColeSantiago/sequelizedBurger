@@ -1,13 +1,21 @@
 $(function() {
   // on click that handles the 'devour it' buttons
   $('.eat-burger').on('click', function(event) {
-    let id = $(this).data('id');
-    let newDevour = $(this).data('newDevour');
+    let burgerId = $(this).data('id');
+    let name = $('#guest-name').val().trim();
+    let newGuest = {
+      guest_name: name,
+    }
     let newDevourState = {
-      devoured: 1
+      devoured: 1,
     };
+
+    $.post('/api/guests', newGuest)
+      .then(function() {
+        console.log('new guest');
+    })
     
-    $.ajax('/api/burgers/' + id, {
+    $.ajax('/api/burgers/' + burgerId, {
       type: 'PUT',
       data: newDevourState
     }).then(
@@ -28,11 +36,13 @@ $(function() {
         devoured: 0
       };
       console.log(newBurger);
-      $.post('/api/burgers', newBurger).then(function() {
-          console.log('created new burger');
-          location.reload();
+      $.post('/api/burgers', newBurger)
+        .then(
+          function() {
+          console.log('created new burger');  
         }
       );
+      location.reload();
       $('#burger-name').val('');
     }
   });

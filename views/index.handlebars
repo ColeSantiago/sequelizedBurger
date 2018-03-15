@@ -8,6 +8,15 @@
           {{#unless devoured}}
           <li>
             {{burger_name}}
+
+              <div class="guest-wrapper">
+                  <form class="guest-form">
+                    <div class="guest-group">
+                      <input type="text" id="guest-name" name="guest-name" placeholder="Guest Name">
+                    </div>
+                  </form>
+              </div>
+
             <button class="eat-burger" data-id="{{id}}" data-newDevour="{{devoured}}" id="{{devoured}}">
               {{#if devoured}}{{else}}DEVOUR IT!{{/if}} 
             </button>
@@ -21,10 +30,7 @@
         {{#each Burger}}
           {{#if devoured}}
           <li>
-            {{burger_name}}
-            <button class="eat-burger" data-id="{{id}}" data-newDevour="{{devoured}}" id="{{devoured}}">
-              {{#if this.devoured}}{{else}}DEVOUR IT!{{/if}} 
-            </button>
+            <p>{{burger_name}} , eaten by {{guest_name}} </p>
           </li>
           {{/if}}
         {{/each}}
