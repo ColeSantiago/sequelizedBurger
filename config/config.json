@@ -16,7 +16,7 @@
   },
   "production": {
     "username": "x6vpcfkv13n1aeze",
-    "password": "vnhwa0h342ov0apy",
+    "password": null,
     "port": 3306,
     "database": "x78bghj5e4ifeugk",
     "host": "cig4l2op6r0fxymw.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
