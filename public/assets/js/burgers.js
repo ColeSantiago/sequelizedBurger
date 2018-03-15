@@ -1,4 +1,14 @@
 $(function() {
+  // on click that handles the 'devour it' buttons
+  $('.eat-burger').on('click', function(event) {
+    let name = $('#guest-name').val().trim();
+    if (name.length === 0 || name === null) {
+      alert('Please fill in a guest name');
+    } else {
+      console.log(name);
+    }
+  });
+
   // on click that handles the submit button that makes new burgers
   $('.create-form').on('submit', function(event) {
     event.preventDefault();
