@@ -11,6 +11,7 @@ router.get('/', function(req, res) {
 		include: [{model: models.guest}],
 		order: ['burger_name']
 	}).then(function(result) {
+		console.log(result);
 		res.render('index', {
 			burger: result
 		});
@@ -42,7 +43,7 @@ router.post('/api/burgers/:burgerId/', function(req, res) {
 	  		if (result.changedRows === 0) {
 	  			return res.status(404).end();
 	  		} else {
-	  			res.redirect('/');
+	  			res.redirect('/dashboard');
 	  		}
 	  	});
   	}
